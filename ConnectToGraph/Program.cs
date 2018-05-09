@@ -17,7 +17,8 @@ namespace ConnectToGraph
             //Console.WriteLine(getStringDate(getEpochDate("04/14/2018")));
             //Console.ReadLine();
             GraphAdapter adapter = new GraphAdapter("bolt://54.191.234.201:7687", "neo4j", "umang");
-            String query = "match(n) where n.location=~'(?i).*sjsu main campus.*' return (n)";
+            //String query = "match(n) where n.location=~'(?i).*sjsu main campus.*' return (n)";
+            String query = "match(n:event) where n.location=~'(?i).*wellness.*'OR n.building=~'(?i).*wellness.*' OR n.office=~'(?i).*wellness.*' OR n.eventName=~'(?i).*wellness.*' OR n.categorization=~'(?i).*wellness.*' OR n.contactName=~'(?i).*wellness.*' return (n)";
             Console.WriteLine(adapter.fire(query));
         }
 
